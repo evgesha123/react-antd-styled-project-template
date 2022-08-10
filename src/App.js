@@ -1,15 +1,21 @@
+import { BrowserRouter } from 'react-router-dom';
+import React from 'react';
 import logo from './logo.svg';
 import './assets/less/customStyles.less';
-import {BrowserRouter} from "react-router-dom";
 
-function App() {
+
+
+// eslint-disable-next-line func-style
+function App () {
   return (
     <div className="App">
       <BrowserRouter>
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <p>
-            Edit <code>src/App.js</code> and save to reload.
+            Edit
+            <code>src/App.js</code>
+            and save to reload.
           </p>
           <a
             className="App-link"
