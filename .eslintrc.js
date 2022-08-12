@@ -28,6 +28,12 @@ module.exports = {
     'lodash',
   ],
   rules: {
+    'react/function-component-definition': [ 2,
+      {
+        namedComponents: 'arrow-function',
+        unnamedComponents: 'arrow-function',
+      },
+    ],
     'node/no-extraneous-import': [ 0 ],
     'node/no-extraneous-require': [ 0 ],
     'node/no-missing-import': [ 0 ],
@@ -338,7 +344,7 @@ module.exports = {
     'no-mixed-requires': [ 2 ],
     'no-new-require': [ 2 ],
     'no-path-concat': [ 2 ],
-    'no-process-env': [ 2 ],
+    'no-process-env': [ 0 ],
     'no-process-exit': [ 2 ],
     'no-restricted-modules': [ 0 ],
     'no-sync': [ 0 ],
