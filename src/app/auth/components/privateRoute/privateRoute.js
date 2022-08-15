@@ -35,7 +35,7 @@ const PrivateRoute = ({ roles, component }) => {
 
 PrivateRoute.propTypes = {
   roles: PropTypes.oneOfType([ PropTypes.object, PropTypes.array ]),
-  component: PropTypes.node.isRequired,
+  component: PropTypes.any.isRequired,
 };
 
 PrivateRoute.defaultProps = {

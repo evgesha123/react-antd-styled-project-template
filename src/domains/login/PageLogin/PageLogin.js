@@ -19,10 +19,6 @@ const PageLogin = () => {
         </Card>
       </Row>
     </Layout>
-    // <>
-    //   <div>Login Page</div>
-    //   <LoginHooks />
-    // </>
   );
 };
 

@@ -43,35 +43,13 @@ const LayoutInner = () => {
           key={2}
           checked={isDarkMode || localStorage.getItem('theme') === 'dark'}
           onChange={toggleTheme}
-          checkedChildren="Dark"
-          unCheckedChildren="Light"
+          // checkedChildren="Dark"
+          // unCheckedChildren="Light"
         />
         <LogoutHooks />
       </Header>
       <Content style={{ padding: '0 50px' }}>
-        <div>Content</div>
-        <div>Content</div>
-        <div>Content</div>
-        <div>Content</div>
-        <div>Content</div>
-        <div>Content</div>
-        <div>Content</div>
-        <div>Content</div>
-        <div>Content</div>
-        <div>Content</div>
-        <div>Content</div>
-        <div>Content</div>
-        <div>Content</div>
-        <div>Content</div>
-        <div>Content</div>
-        <div>Content</div>
-        <div>Content</div>
-        <div>Content</div>
-        <div>Content</div>
-        <div>Content</div>
-        <div>Content</div>
-        <div>Content</div>
-        <div>Content</div>
+        Content
       </Content>
       <Footer style={{ textAlign: 'center' }}>
         <a
