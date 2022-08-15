@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 
 
 
-const Error404 = () => {
+const AccessDenied = () => {
   const navigate = useNavigate();
 
   return (
@@ -26,4 +26,4 @@ const Error404 = () => {
   );
 };
 
-export default Error404;
+export default AccessDenied;

@@ -1,67 +1,89 @@
-import {
-  MenuFoldOutlined,
-  MenuUnfoldOutlined,
-  UploadOutlined,
-  UserOutlined,
-  VideoCameraOutlined,
-} from '@ant-design/icons';
-import { Layout, Menu } from 'antd';
 import React, { useState } from 'react';
+import { useThemeSwitcher } from 'react-css-theme-switcher';
+import isEmpty from 'lodash/isEmpty';
+import { Layout, Menu, Switch } from 'antd';
+import { Link } from 'react-router-dom';
+import { MenuItems } from './LayoutInner.const';
+import LogoutHooks from '../logout';
 
 
 
-const { Header, Sider, Content } = Layout;
+const { Header, Content, Footer } = Layout;
 
-const App = () => {
-  const [ collapsed, setCollapsed ] = useState(false);
+const LayoutInner = () => {
+  const [ isDarkMode, setIsDarkMode ] = useState();
+  const { switcher, themes } = useThemeSwitcher();
+
+  const toggleTheme = (isChecked) => {
+    setIsDarkMode(isChecked);
+    localStorage.setItem('theme', isChecked ? 'dark' : 'light');
+    switcher({ theme: isChecked ? themes.dark : themes.light });
+  };
 
   return (
     <Layout>
-      <Sider trigger={null} collapsible collapsed={collapsed}>
+      <Header className="header">
         <div className="logo" />
         <Menu
-          theme="dark"
-          mode="inline"
-          defaultSelectedKeys={[ '1' ]}
-          items={[
-            {
-              key: '1',
-              icon: <UserOutlined />,
-              label: 'nav 1',
-            },
-            {
-              key: '2',
-              icon: <VideoCameraOutlined />,
-              label: 'nav 2',
-            },
-            {
-              key: '3',
-              icon: <UploadOutlined />,
-              label: 'nav 3',
-            },
-          ]}
-        />
-      </Sider>
-      <Layout className="site-layout">
-        <Header className="site-layout-background" style={{ padding: 0 }}>
-          {React.createElement(collapsed ? MenuUnfoldOutlined : MenuFoldOutlined, {
-            className: 'trigger',
-            onClick: () => setCollapsed(!collapsed),
-          })}
-        </Header>
-        <Content
-          className="site-layout-background"
-          style={{
-            margin: '24px 16px',
-            padding: 24,
-            minHeight: 280,
-          }}
+          theme='dark'
+          mode="horizontal"
+          defaultSelectedKeys={[ 'dashboard' ]}
         >
-          Content
-        </Content>
-      </Layout>
+          {!isEmpty(MenuItems) && MenuItems.map((item) => {
+            return (
+              <Menu.Item key={item.key} icon={item.icon}>
+                <Link to={item.navLink}>{item.label}</Link>
+              </Menu.Item>
+            );
+          })}
+        </Menu>
+
+        <Switch
+          style={{ marginRight: 6 }}
+          key={2}
+          checked={isDarkMode || localStorage.getItem('theme') === 'dark'}
+          onChange={toggleTheme}
+          checkedChildren="Dark"
+          unCheckedChildren="Light"
+        />
+        <LogoutHooks />
+      </Header>
+      <Content style={{ padding: '0 50px' }}>
+        <div>Content</div>
+        <div>Content</div>
+        <div>Content</div>
+        <div>Content</div>
+        <div>Content</div>
+        <div>Content</div>
+        <div>Content</div>
+        <div>Content</div>
+        <div>Content</div>
+        <div>Content</div>
+        <div>Content</div>
+        <div>Content</div>
+        <div>Content</div>
+        <div>Content</div>
+        <div>Content</div>
+        <div>Content</div>
+        <div>Content</div>
+        <div>Content</div>
+        <div>Content</div>
+        <div>Content</div>
+        <div>Content</div>
+        <div>Content</div>
+        <div>Content</div>
+      </Content>
+      <Footer style={{ textAlign: 'center' }}>
+        <a
+          href="https://fabros-team.com/"
+          target="_blank"
+          className="da-badge-text da-text-color-dark-30" rel="noreferrer"
+        >
+          Fabros LLC ©2022
+        </a>
+      </Footer>
     </Layout>
   );
 };
 
-export default App;
+export default LayoutInner;

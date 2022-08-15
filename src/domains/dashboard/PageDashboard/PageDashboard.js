@@ -1,12 +1,16 @@
 import React from 'react';
+import LogoutHooks from '../../../app/auth/components/logout/logoutHooks';
 
 
 
-const PageLogin = () => {
+const PageDashboard = () => {
   return (
-    <div>Login Page</div>
+    <>
+      <div>Dashboard Page</div>
+      <LogoutHooks />
+    </>
   );
 };
 
 
-export default PageLogin;
+export default PageDashboard;

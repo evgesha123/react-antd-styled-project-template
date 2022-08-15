@@ -1,5 +1,5 @@
-import LoginHooks from './loginHooks';
+import LayoutInner from './LayoutInner';
 
 
 
-export default LoginHooks;
+export default LayoutInner;

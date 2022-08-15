@@ -1,77 +1,35 @@
-import { BrowserRouter } from 'react-router-dom';
-import React, { useEffect, useState } from 'react';
-import { GoogleLogin, GoogleLogout } from 'react-google-login';
-import { gapi } from 'gapi-script';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import React from 'react';
 import './assets/less/customStyles.less';
+import isEmpty from 'lodash/isEmpty';
+import PageLogin from './domains/login/PageLogin';
+import PrivateRoute from './app/auth/components/privateRoute';
+import PageDashboard from './domains/dashboard/PageDashboard';
+import AccessDenied from './app/auth/components/accessDenied';
 
 
 
 const App = () => {
-  const [ profile, setProfile ] = useState([]);
-  const clientId = '386576574744-4q6g4rej43gg3nli1midei1qsge5jo87.apps.googleusercontent.com';
+  const isAuthenticated = !isEmpty(localStorage.getItem('auth'));
 
-  const onSuccess = (res) => {
-    setProfile(res.profileObj);
-  };
-
-  const onFailure = (err) => {
-    // eslint-disable-next-line no-console
-    console.log('failed', err);
-  };
-
-  const logOut = () => {
-    setProfile(null);
-  };
-
-  useEffect(() => {
-    const initClient = () => {
-      gapi.client.init({
-        clientId,
-        scope: '',
-      });
-    };
-
-    gapi.load('client:auth2', initClient);
-  });
+  // eslint-disable-next-line no-console
+  console.log('isAuthenticated1111', isAuthenticated);
 
   return (
     <div className="App">
       <BrowserRouter>
-        <div>
-          <h2>React Google Login</h2>
-          <br />
-          <br />
-          {profile ? (
-            <div>
-              <img src={profile.imageUrl} alt="user logo" />
-              <h3>User Logged in</h3>
-              <p>
-                Name:
-                {profile.name}
-              </p>
-              <p>
-                Email Address:
-                {profile.email}
-              </p>
-              <br />
-              <br />
-              <GoogleLogout
-                clientId={clientId}
-                buttonText="Log out"
-                onLogoutSuccess={logOut}
-              />
-            </div>
-          ) : (
-            <GoogleLogin
-              clientId={clientId}
-              buttonText="Sign in with Google"
-              onSuccess={onSuccess}
-              onFailure={onFailure}
-              cookiePolicy="single_host_origin"
-              isSignedIn
-            />
-          )}
-        </div>
+        <Routes>
+          <Route path="/" element={<PageLogin />} />
+          <Route path="*" element={<AccessDenied />} />
+          <Route
+            path="dashboard"
+            element={<PrivateRoute roles={[/* ROLE.ADMIN */]} component={PageDashboard} />}
+          />
+          <Route
+            path="users"
+            element={<PrivateRoute roles={[/* ROLE.ADMIN, ROLE.USER */]} component={PageDashboard} />}
+          />
+        </Routes>
       </BrowserRouter>
     </div>
   );

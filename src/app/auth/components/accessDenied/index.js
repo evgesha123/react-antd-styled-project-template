@@ -1,5 +1,5 @@
-import Error404 from './Error404';
+import AccessDenied from './AccessDenied';
 
 
 
-export default Error404;
+export default AccessDenied;
