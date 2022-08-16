@@ -1,6 +1,6 @@
 import React from 'react';
 import { Card, Col, Layout, Row } from 'antd';
-import LoginHooks from '../../../app/auth/components/login/loginHooks';
+import LoginHook from '../../../app/auth/components/login/loginHook';
 
 
 
@@ -14,7 +14,7 @@ const PageLogin = () => {
             Welcome back, please login to your account.
           </p>
           <Col className="da-account-buttons da-mt-32">
-            <LoginHooks />
+            <LoginHook />
           </Col>
         </Card>
       </Row>

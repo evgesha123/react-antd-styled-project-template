@@ -2,11 +2,11 @@ import React from 'react';
 import { useGoogleLogout } from 'react-google-login';
 import { useNavigate } from 'react-router-dom';
 import { Button } from 'antd';
-import Config from '../../../../services/Config/index';
+import Config from '../../../services/Config/index';
 
 
 
-const LogoutHooks = () => {
+const LogoutHook = () => {
   const navigate = useNavigate();
 
   const onLogoutSuccess = () => {
@@ -30,4 +30,4 @@ const LogoutHooks = () => {
   );
 };
 
-export default LogoutHooks;
+export default LogoutHook;

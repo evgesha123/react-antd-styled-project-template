@@ -1,5 +1,5 @@
-import LogoutHooks from './logoutHooks';
+import LogoutHook from './logoutHook';
 
 
 
-export default LogoutHooks;
+export default LogoutHook;

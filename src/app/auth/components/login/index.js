@@ -1,5 +1,5 @@
-import LoginHooks from './loginHooks';
+import LoginHook from './loginHook';
 
 
 
-export default LoginHooks;
+export default LoginHook;

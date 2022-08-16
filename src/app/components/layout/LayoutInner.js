@@ -1,19 +1,16 @@
 import React from 'react';
 import isEmpty from 'lodash/isEmpty';
-import { Avatar, Col, Dropdown, Image, Layout, Menu } from 'antd';
-import { Link, useLocation } from 'react-router-dom';
+import { Layout, Menu } from 'antd';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { dropdownOverlay, MenuItems } from './LayoutInner.const';
+import { MenuItems } from './LayoutInner.const';
+import LogoutHook from '../logout';
 
 
 
 const { Header, Content, Footer } = Layout;
 
-
 const LayoutInner = ({ content }) => {
-  const { pathname } = useLocation();
-  const userData = JSON.parse(localStorage.getItem('auth'));
-
   return (
     <Layout>
       <Header className="header">
@@ -21,7 +18,7 @@ const LayoutInner = ({ content }) => {
         <Menu
           theme='dark'
           mode="horizontal"
-          selectedKeys={[ pathname.substring(1) ]}
+          defaultSelectedKeys={[ 'dashboard' ]}
         >
           {!isEmpty(MenuItems) && MenuItems.map((item) => {
             return (
@@ -31,25 +28,7 @@ const LayoutInner = ({ content }) => {
             );
           })}
         </Menu>
-
-        <Col>
-          <Dropdown overlay={dropdownOverlay} placement="bottomLeft">
-            <Col className="da-d-flex-center" onClick={(ev) => ev.preventDefault()}>
-              <Avatar
-                className='pointer'
-                size={40}
-                src={
-                  <Image
-                    referrerPolicy="no-referrer"
-                    src={userData.profileObj.imageUrl || null}
-                    style={{ width: 40, height: 40 }}
-                    preview={false}
-                  />
-                }
-              />
-            </Col>
-          </Dropdown>
-        </Col>
+        <LogoutHook />
       </Header>
       <Content style={{ padding: '0 50px' }}>
         {content}

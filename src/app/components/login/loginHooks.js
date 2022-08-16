@@ -2,12 +2,13 @@ import React, { useEffect } from 'react';
 import { GoogleLogin } from 'react-google-login';
 import { gapi } from 'gapi-script';
 import { useNavigate } from 'react-router-dom';
-import Config from '../../../../services/Config/index';
-import { refreshTokenSetup } from '../../utils/refreshToken';
+import Config from '../../../services/Config/index';
+import { refreshTokenSetup } from '../../auth/utils/refreshToken';
+import { mkNotification } from '../../../lib/mkNotification';
 
 
 
-const LoginHooks = () => {
+const LoginHook = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -27,9 +28,8 @@ const LoginHooks = () => {
     refreshTokenSetup(res);
   };
 
-  const onFailure = (res) => {
-    // eslint-disable-next-line no-console
-    console.log('Login failed: res:', res);
+  const onFailure = () => {
+    mkNotification('error', 'Authentication error! Contact the web development team.');
   };
 
   return (
@@ -47,4 +47,4 @@ const LoginHooks = () => {
   );
 };
 
-export default LoginHooks;
+export default LoginHook;

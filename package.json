@@ -9,28 +9,18 @@
     "@testing-library/react": "^12.1.5",
     "@testing-library/user-event": "^13.5.0",
     "antd": "^4.22.4",
-    "autoprefixer": "^10.4.8",
     "axios": "^0.27.2",
     "axios-mock-adapter": "^1.21.2",
-    "babel-plugin-import": "^1.13.5",
     "date-fns": "^2.29.1",
     "eslint-plugin-disable": "^2.0.3",
     "formik": "^2.2.9",
     "formik-antd": "^2.0.4",
     "gapi-script": "^1.2.0",
-    "gulp": "^4.0.2",
-    "gulp-csso": "^4.0.1",
-    "gulp-debug": "^4.0.0",
-    "gulp-less": "^5.0.0",
-    "gulp-postcss": "^9.0.1",
-    "less-plugin-npm-import": "^2.1.0",
     "lodash": "^4.17.21",
     "prop-types": "^15.8.1",
     "react": "^17.0.2",
-    "react-css-theme-switcher": "^0.3.0",
     "react-dom": "^17.0.2",
     "react-google-login": "^5.2.2",
-    "react-iconly": "^2.2.3",
     "react-icons": "^4.2.0",
     "react-redux": "^8.0.2",
     "react-router-dom": "^6.3.0",
@@ -38,7 +28,6 @@
     "redux-thunk": "^2.4.1",
     "styled-components": "^5.3.5",
     "web-vitals": "^2.1.4",
-    "webpack": "^5.74.0",
     "yup": "^0.32.11"
   },
   "scripts": {
@@ -48,7 +37,8 @@
     "eject": "react-scripts eject",
     "lint": "eslint src/",
     "lint-fix": "eslint src/ --fix",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "less": "lessc --js src/assets/less/themes/antd-customized.less src/assets/less/themes/antd-customized.css"
   },
   "eslintConfig": {
     "extends": [
