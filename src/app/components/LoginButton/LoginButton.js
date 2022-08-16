@@ -3,12 +3,13 @@ import { GoogleLogin } from 'react-google-login';
 import { gapi } from 'gapi-script';
 import { useNavigate } from 'react-router-dom';
 import Config from '../../../config/index';
-import { refreshTokenSetup } from '../../auth/utils/refreshToken';
+import urlPageDashboard from '../../../urls/urlPageDashboard';
+import { refreshTokenSetup } from '../../utils/refreshToken';
 import { mkNotification } from '../../../lib/mkNotification';
 
 
 
-const LoginHook = () => {
+const LoginButton = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -24,7 +25,7 @@ const LoginHook = () => {
 
   const onSuccess = (res) => {
     localStorage.setItem('auth', JSON.stringify(res));
-    navigate('/dashboard');
+    navigate(urlPageDashboard());
     refreshTokenSetup(res);
   };
 
@@ -33,18 +34,16 @@ const LoginHook = () => {
   };
 
   return (
-    <div>
-      <GoogleLogin
-        clientId={Config.GOOGLE_CLIENT_ID}
-        buttonText="Continue with Google account"
-        onSuccess={onSuccess}
-        onFailure={onFailure}
-        cookiePolicy="single_host_origin"
-        style={{ marginTop: '100px' }}
-        isSignedIn
-      />
-    </div>
+    <GoogleLogin
+      clientId={Config.GOOGLE_CLIENT_ID}
+      buttonText="Continue with Google account"
+      onSuccess={onSuccess}
+      onFailure={onFailure}
+      cookiePolicy="single_host_origin"
+      style={{ marginTop: '100px' }}
+      isSignedIn
+    />
   );
 };
 
-export default LoginHook;
+export default LoginButton;
