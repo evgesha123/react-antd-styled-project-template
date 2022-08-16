@@ -3,7 +3,7 @@ import { useGoogleLogout } from 'react-google-login';
 import { useNavigate } from 'react-router-dom';
 import { Button } from 'antd';
 import { FaSignOutAlt } from 'react-icons/fa';
-import Config from '../../../../services/Config/index';
+import Config from '../../../../config/index';
 
 
 

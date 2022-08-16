@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { GoogleLogin } from 'react-google-login';
 import { gapi } from 'gapi-script';
 import { useNavigate } from 'react-router-dom';
-import Config from '../../../services/Config/index';
+import Config from '../../../config/index';
 import { refreshTokenSetup } from '../../auth/utils/refreshToken';
 import { mkNotification } from '../../../lib/mkNotification';
 

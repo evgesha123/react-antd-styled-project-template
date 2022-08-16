@@ -2,7 +2,7 @@ import React from 'react';
 import { useGoogleLogout } from 'react-google-login';
 import { useNavigate } from 'react-router-dom';
 import { Button } from 'antd';
-import Config from '../../../services/Config/index';
+import Config from '../../../config/index';
 
 
 

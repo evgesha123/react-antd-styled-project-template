@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React from 'react';
-import Config from '../Config/index';
+import Config from '../../config/index';
 import { getLocalToken } from '../../lib/getLocalToken';
 import { mkNotification } from '../../lib/mkNotification';
 import urlPageNotFound from '../../urls/urlPageNotFound';
