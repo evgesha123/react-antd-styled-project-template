@@ -1,11 +1,16 @@
 import React from 'react';
+import { Layout } from 'antd';
 
 
+
+const { Content } = Layout;
 
 const PageDashboard = () => {
   return (
     <div>
-      Dashboard page
+      <Content>
+        Dashboard page
+      </Content>
     </div>
   );
 };

@@ -1,5 +1,8 @@
-import urlPageDashboard from '../../../urls/urlPageDashboard';
+import { Menu } from 'antd';
+import React from 'react';
+import LogoutButton from '../LogoutButton';
 import urlPageUsers from '../../../urls/urlPageUsers';
+import urlPageDashboard from '../../../urls/urlPageDashboard';
 
 
 
@@ -17,3 +20,11 @@ export const MenuItems = [
     icon: '',
   },
 ];
+
+export const dropdownOverlay = () => (
+  <Menu theme="light">
+    <Menu.Item key='logout'>
+      <LogoutButton />
+    </Menu.Item>
+  </Menu>
+);

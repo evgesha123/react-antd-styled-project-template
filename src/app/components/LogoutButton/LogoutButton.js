@@ -2,6 +2,7 @@ import React from 'react';
 import { useGoogleLogout } from 'react-google-login';
 import { useNavigate } from 'react-router-dom';
 import { Button } from 'antd';
+import { FaSignOutAlt } from 'react-icons/fa';
 import Config from '../../../config/index';
 
 
@@ -21,9 +22,10 @@ const LogoutButton = () => {
 
   return (
     <Button
-      style={{ background: 'rgb(32 75 161)', borderColor: 'transparent' }}
+      style={{ color: 'white' }}
       onClick={signOut}
-      type='primary'
+      type='link'
+      icon={<FaSignOutAlt className='kt-mr-5' />}
     >
       Sign out
     </Button>
