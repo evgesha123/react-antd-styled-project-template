@@ -4,7 +4,7 @@ import { Layout, Menu } from 'antd';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { MenuItems } from './LayoutInner.const';
-import LogoutHook from '../logout';
+import LogoutButton from '../LogoutButton';
 
 
 
@@ -28,7 +28,7 @@ const LayoutInner = ({ content }) => {
             );
           })}
         </Menu>
-        <LogoutHook />
+        <LogoutButton />
       </Header>
       <Content style={{ padding: '0 50px' }}>
         {content}

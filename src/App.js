@@ -1,14 +1,13 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import React from 'react';
-import isEmpty from 'lodash/isEmpty';
 import PageLogin from './domains/login/PageLogin';
-import PrivateRoute from './app/auth/components/privateRoute';
 import PageDashboard from './domains/dashboard/PageDashboard';
 import PageUsers from './domains/users/PageUsers';
-import AccessDenied from './app/auth/components/accessDenied';
 import './assets/less/themes/antd-customized.css';
 import urlPageDashboard from './urls/urlPageDashboard';
 import urlPageUsers from './urls/urlPageUsers';
+import AccessDenied from './app/components/AccessDenied';
+import PrivateRoute from './app/components/PrivateRoute';
 
 
 

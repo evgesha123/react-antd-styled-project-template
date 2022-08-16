@@ -4,7 +4,7 @@ import { Navigate } from 'react-router-dom';
 import isEmpty from 'lodash/isEmpty';
 // import AccessDenied from '../accessDenied';
 import PropTypes from 'prop-types';
-import LayoutInner from '../layout/LayoutInner';
+import LayoutInner from '../Layout/LayoutInner';
 // import { ROLE } from './features/auth/auth';
 // import { selectCurrentUser, selectIsAuthenticated } from './features/auth/authSlice';
 
