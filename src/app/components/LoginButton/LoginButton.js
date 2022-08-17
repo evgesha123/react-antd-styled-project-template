@@ -35,6 +35,7 @@ const LoginButton = () => {
 
   return (
     <GoogleLogin
+      theme='dark'
       clientId={Config.GOOGLE_CLIENT_ID}
       buttonText="Continue with Google account"
       onSuccess={onSuccess}
