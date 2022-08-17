@@ -8,12 +8,16 @@ const PageLogin = () => {
   return (
     <Layout className="login">
       <Row>
-        <Card style={{ textAlign: 'center', boxShadow: 'rgb(34 60 80 / 5%) 0px 0px 8px 2px' }}>
+        <Card
+          style={{
+            textAlign: 'center',
+            boxShadow: 'rgb(24 26 27 / 69%) 0px 0px 8px 2px',
+            background: '#343a40e3',
+          }}
+        >
           <h1>Login</h1>
-          <p className="da-mt-sm-0 da-mt-8 da-text-color-black-60">
-            Welcome back, please login to your account.
-          </p>
-          <Col className="da-account-buttons da-mt-32">
+          <p>Welcome back, please login to your account.</p>
+          <Col>
             <LoginButton />
           </Col>
         </Card>

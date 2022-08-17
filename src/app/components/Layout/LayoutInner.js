@@ -3,6 +3,8 @@ import isEmpty from 'lodash/isEmpty';
 import { Avatar, Col, Dropdown, Image, Layout, Menu } from 'antd';
 import { Link, useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { format } from 'date-fns';
+import MenuLogo from '../../../assets/images/fabros_logo.svg';
 import { dropdownOverlay, MenuItems } from './LayoutInner.const';
 
 
@@ -17,7 +19,9 @@ const LayoutInner = ({ content }) => {
   return (
     <Layout>
       <Header className="header">
-        <div className="logo" />
+        <div className="header_logo">
+          <Image src={MenuLogo} preview={false} />
+        </div>
         <Menu
           theme='dark'
           mode="horizontal"
@@ -51,7 +55,7 @@ const LayoutInner = ({ content }) => {
           </Dropdown>
         </Col>
       </Header>
-      <Content style={{ padding: '0 50px' }}>
+      <Content style={{ padding: '20px 30px' }}>
         {content}
       </Content>
       <Footer style={{ textAlign: 'center' }}>
@@ -60,7 +64,7 @@ const LayoutInner = ({ content }) => {
           target="_blank"
           className="da-badge-text da-text-color-dark-30" rel="noreferrer"
         >
-          Fabros LLC ©2022
+          {`Fabros LLC ©${format(new Date(), 'yyyy')}`}
         </a>
       </Footer>
     </Layout>
